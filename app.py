@@ -10,12 +10,11 @@ app = Flask(__name__, static_url_path="/static")
 
 
 # APP CONFIGURATIONS
-app.config['SECRET_KEY'] = 'mgc'  
+app.config['SECRET_KEY'] = 'mgc'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['DOWNLOAD_FOLDER'] = DOWNLOAD_FOLDER
 # limit upload size upto 6mb
 # app.config['MAX_CONTENT_LENGTH'] = 6 * 1024 * 1024
-
 
 
 def allowed_file(filename):
@@ -24,7 +23,7 @@ def allowed_file(filename):
 
 
 @app.route('/', methods=['GET', 'POST'])
-def index(name=None):
+def index(data=None):
     if request.method == 'POST':
         print('Posting!!!!!!!!!!!')
         if 'file' not in request.files:
@@ -38,5 +37,12 @@ def index(name=None):
             print('uploading file...')
             filename = secure_filename(file.filename)
             file.save(os.path.join(UPLOAD_FOLDER, filename))
-        return render_template("index.html", data=name)
-    return render_template('index.html', name=name)
+            data = {data: None}
+            return render_template('index.html', data=data)
+
+    return render_template('index.html')
+
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    return render_template('predict.html')

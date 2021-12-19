@@ -6,9 +6,15 @@
 <body>
   <h1>Upload audio here:</h1>
 <div class=”container”>
-    <form method=post enctype=multipart/form-data>
+    <form method=post enctype=multipart/form-data >
        <input type=file name=file >
        <input type=submit value=Upload class=”btn btn-primary” >
     </form>
 </div>
+{% if data %}
+<div class="container">
+    <h2>Prediction:</h2>
+</div>
+{% endif %}
 </body>
+
