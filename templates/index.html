@@ -1,7 +1,15 @@
-<!doctype html>
+<!DOCTYPE html>
 <title>Hello from Flask</title>
-{% if name %}
-  <h1>Hello {{ name }}!</h1>
-{% else %}
-  <h1>Hello, World!</h1>
-{% endif %}
+<center>
+  <h1>Music genre recognition app</h1>
+</center>
+<body>
+  <h1>Upload audio here:</h1>
+<div class=”container”>
+    <form method=post enctype=multipart/form-data>
+       <input type=file name=file >
+       <input type=submit value=Upload class=”btn btn-primary”
+    </form>
+   <img id=”output” alt=”” width=”40%” height=”40%” />
+</div>
+</body>

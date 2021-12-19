@@ -2,8 +2,8 @@
 Flask app to classify genres of music
 
 
-Run app locally:
+Run app locally in development:
 
 ```
-FLASK_APP=app flask run
+FLASK_ENV=development
 ```
